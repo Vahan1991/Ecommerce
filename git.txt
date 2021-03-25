@@ -1,3 +1,6 @@
+https://www.datacamp.com/community/tutorials/git-push-pull
+
 // git branch -m main ecommerce
 // git fetch origin
 // git branch -u origin/ecommerce ecommerce
+// git push -u origin master
