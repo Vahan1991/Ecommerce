@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce-ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ecommerce.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vahan1991/https---github.com-Vahan1991-Ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vahan1991/https---github.com-Vahan1991-Ecommerce/issues"
+  },
+  "homepage": "https://github.com/Vahan1991/https---github.com-Vahan1991-Ecommerce#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.13.12"
+  }
+}
