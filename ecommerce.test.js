@@ -1,5 +1,6 @@
 
 import { Ecommerce } from './ecommerce.js';
+import {validData, invalidData, dates, validData_2, searching} from './dataFiles'
 
 const { chromium } = require('playwright');
 let browser;
@@ -15,17 +16,19 @@ beforeAll(async () => {
     page = await browser.newPage();
   });
 
+  afterAll(async () => {
+    await browser.close()
+  })
 
 describe("Test suite", ()=>{
   it('It should work', async () => {
-        //jest.setTimeout(20000)
         let ecco = new Ecommerce(page)
         await ecco.open()
-        await ecco.createAccount(`vahan.margaryan@betconstruct_5${+11}.com`)
-        await ecco.createAccount_2('Vahan', 'Margaryan', '123456')
+        //await ecco.createAccount(invalidData)
+        await ecco.createAccount(validData, dates, validData_2)
         await ecco.logOut()
-        await ecco.signIn('vahan.margaryan@betconstruct_3.com', '123456')
-        await ecco.search('Printed Chiffon Dress')
+        await ecco.signIn(validData.email, validData.pas)
+        await ecco.search(searching.query)
     });
 })
 
