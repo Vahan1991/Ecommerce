@@ -1,6 +1,7 @@
 
 import { Ecommerce } from './ecommerce.js';
-import {validData, invalidData, dates, validData_2, searching} from './dataFiles'
+import {loginCredentials, dates} from './dataFiles'
+
 
 const { chromium } = require('playwright');
 let browser;
@@ -21,11 +22,11 @@ beforeAll(async () => {
   })
 
 describe("Test suite", ()=>{
-  it('It should work', async () => {
+  it('Test with valid credentials', async () => {
         let ecco = new Ecommerce(page)
         await ecco.open()
         //await ecco.createAccount(invalidData)
-        await ecco.createAccount(validData, dates, validData_2)
+        await ecco.createAccount(loginCredentials.validData[0])
         await ecco.logOut()
         await ecco.signIn(validData.email, validData.pas)
         await ecco.search(searching.query)
