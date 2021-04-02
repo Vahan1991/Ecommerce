@@ -16,6 +16,15 @@ export const loginCredentials = {
         months: '1',
         years: '2021'
     },
+    {
+        email: "vahan.margaryan@betconstruct004.com"
+    },
+    {
+        email: 'vahan.margaryan@betconstruct005.com'
+    },
+        // {
+        //     something: 'check for index = [1]'
+        // }
  ],
 
  invalidData : [
