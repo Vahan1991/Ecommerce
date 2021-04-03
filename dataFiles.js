@@ -1,10 +1,9 @@
-export const loginCredentials = { 
- validData : [
-    {
-        firstName: "Vahan", 
+export const userCredentials = { 
+ validData: [
+    {   firstName: "Vahan", 
         lastName: "Margaryan", 
+        email: 'vahan.margaryan@betconstructVa08.com',
         pass: '12345600',
-        email: "vahan.margaryan@betconstruct_5.com",
         company: 'Ucraft',
         address1: 'address 123',
         city: 'Yerevan',
@@ -17,17 +16,42 @@ export const loginCredentials = {
         years: '2021'
     },
     {
-        email: "vahan.margaryan@betconstruct004.com"
+        firstName: "Vahan2", 
+        lastName: "Margaryan2", 
+        email: "vahan.margaryan@betconstruct005.com",
+        pass: '12345600',
+        company: 'Ucraft',
+        address1: 'address 123',
+        city: 'Yerevan',
+        state: '1',
+        postcode: '00026',
+        other: 'Hello World !',
+        mobileNum: '+37496122261',
+        days: '1',
+        months: '1',
+        years: '2021'
     },
     {
-        email: 'vahan.margaryan@betconstruct005.com'
+        firstName: "Vahan3", 
+        lastName: "Margaryan3", 
+        email: 'vahan.margaryan@betconstruct006.com',
+        pass: '12345600',
+        company: 'Ucraft',
+        address1: 'address 123',
+        city: 'Yerevan',
+        state: '1',
+        postcode: '00026',
+        other: 'Hello World !',
+        mobileNum: '+37496122261',
+        days: '1',
+        months: '1',
+        years: '2021'
     },
         // {
         //     something: 'check for index = [1]'
         // }
  ],
-
- invalidData : [
+ invalidData: [
     {
         firstName: "Vahan@@@", 
         lastName: "Margaryan#dsa", 
@@ -40,8 +64,17 @@ export const loginCredentials = {
  ]
 };
 
+// export const srch = {
+//     searching: [
+//     {
+//         query: 'Printed Chiffon Dress'
+//     },
+// ] 
+// }
 
+// userCredentials.validData[0].email.forEach((i) => {
+// //    console.log(Math.random(i))
+// })
 
-export const searching = {
-    query: 'Printed Chiffon Dress'
-}
+// console.log(srch.searching[0])
+// console.log(typeof(userCredentials.validData[2]))

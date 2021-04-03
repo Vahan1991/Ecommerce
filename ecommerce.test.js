@@ -1,47 +1,83 @@
 
 import { Ecommerce } from './ecommerce.js';
-import {loginCredentials, dates} from './dataFiles'
-
+import { userCredentials } from './dataFiles'
+import { selectorsOfCredentials } from './ecommerceSelectors.js';
 
 const { chromium } = require('playwright');
 let browser;
 let page;
 
 beforeAll(async () => {
-    browser = await chromium.launch({
-        headless: false
-    });
+    browser = await chromium.launch({headless: false});
+    // browserContext = await browser.newContext()
+    // page = await browserContext.newPage()
   });
 
-  beforeEach(async () => {
+beforeEach(async () => {
     page = await browser.newPage();
-  });
+    // let ecomm = new Ecommerce(page)
+    // await ecomm.open()
+});
 
-  afterAll(async () => {
-    await browser.close()
-  })
+// afterEach(async () => {
+//   await browserContext.clearCookies()
+// })
 
-describe("Test suite", ()=>{
+afterAll(async () => {
+  await browser.close()
+})
+
+
+// const emls = [userCredentials.validData[0], userCredentials.validData[1], userCredentials.validData[2]] 
+// emls.forEach(async (eml) => {  
+describe("Test suite", ()=>{ 
   it('Test with valid credentials', async () => {
-        let ecco = new Ecommerce(page)
-        await ecco.open()
-        //await ecco.createAccount(invalidData)
-        await ecco.createAccount(loginCredentials.validData[0])
-        await ecco.logOut()
-        await ecco.signIn(validData.email, validData.pas)
-        await ecco.search(searching.query)
+        let ecomm = new Ecommerce(page)
+        await ecomm.open()
+    
+       // await ecomm.createAccount({emls: eml.email}, selectorsOfCredentials.createAccountSelectors[0])
+        await ecomm.createAccount(userCredentials.validData[0], selectorsOfCredentials.createAccountSelectors[0])
+        await ecomm.logOut(selectorsOfCredentials.logOutSelector[0])
+        await ecomm.signIn(userCredentials.validData[0], selectorsOfCredentials.signInSelectors[0])
+        await ecomm.logOut(selectorsOfCredentials.logOutSelector[0]) 
+        
+        // });
+
+
+        // let testObj = [userCredentials.validData[1].email, userCredentials.validData[2].email]
+        // testObj.forEach(async (i) => {}) 
+        
+
+         //await ecomm.createAccount(loginCredentials.invalidData[0])
+        // await ecomm.search(srch.searching[0], searchSelectors.searchingSel[0])
+       
     });
 })
+ 
+
+// for (let i = 0; i < emls; i++) {  
+//   const e = emls[i];        // `${e}`
+
+
+// const emls = [userCredentials.validData[0], userCredentials.validData[1], userCredentials.validData[2]]
+//         for (let i = 0; i < emls; i++) {  
+//         const e = emls[i]  // `${e}`
+//
+
+
+
+
+
 
 
 // let title = await page.waitForSelector("//div[@id='create_account_error']") // , {timeout: 5000}
 //         let expectedTitle = 'An account using this email address has already been registered. Please enter a valid password or request a new one. '
 //         expect(await title.textContent()).toEqual(expectedTitle)
 //         if (expectedTitle) {
-//             await ecco.createAccount(`vahan.margaryan@betconstruct_5${+8}.com`)
-//             await ecco.createAccount_2('Vahan', 'Margaryan', '123456')
-//             await ecco.logOut()
-//             await ecco.signIn('vahan.margaryan@betconstruct_3.com', '123456')
-//             await ecco.search('Printed Chiffon Dress')
+//             await ecomm.createAccount(`vahan.margaryan@betconstruct_5${+8}.com`)
+//             await ecomm.createAccount_2('Vahan', 'Margaryan', '123456')
+//             await ecomm.logOut()
+//             await ecomm.signIn('vahan.margaryan@betconstruct_3.com', '123456')
+//             await ecomm.search('Printed Chiffon Dress')
 //             // await page.close();
 // }
