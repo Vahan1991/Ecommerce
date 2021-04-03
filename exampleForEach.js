@@ -1,13 +1,22 @@
-let testArray = [1,2,3,4]
+// let testArray = [1,2,3,4]
 
-testArray.forEach((i) => {
-    console.log(i);
-})
+// testArray.forEach((i) => {
+//     console.log(i);
+// })
 
-var eml = ["vahan.margaryan@betconstruct004.com", 'vahan.margaryan@betconstruct005.com']
+// var eml = ["vahan.margaryan@betconstruct004.com", 'vahan.margaryan@betconstruct005.com']
 
-console.log(eml.slice(0))
+// console.log(eml.slice(0))
 
+let time = 0
+
+while (time <= 10) {
+  if (time === 4) {
+      console.log(time + ' number 4')
+  }  
+  console.log(time)
+  time++
+}
 
 
 // const urls = [...]
