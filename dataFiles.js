@@ -2,7 +2,7 @@ export const userCredentials = {
  validData: [
     {   firstName: "Vahan", 
         lastName: "Margaryan", 
-        email: 'vahan.margaryan@betconstructTest13.com',
+        email: 'vahan.margaryan@betconstructTest10.com',
         pass: '12345600',
         company: 'Ucraft',
         address1: 'address 123',
@@ -15,22 +15,22 @@ export const userCredentials = {
         months: '1',
         years: '2021'
     },
-    // {
-    //     firstName: "Vahan2", 
-    //     lastName: "Margaryan2", 
-    //     email: "vahan.margaryan@betconstruct005.com",
-    //     pass: '12345600',
-    //     company: 'Ucraft',
-    //     address1: 'address 123',
-    //     city: 'Yerevan',
-    //     state: '1',
-    //     postcode: '00026',
-    //     other: 'Hello World !',
-    //     mobileNum: '+37496122261',
-    //     days: '1',
-    //     months: '1',
-    //     years: '2021'
-    // },
+    {
+        firstName: "Vahan2", 
+        lastName: "Margaryan2", 
+        email: "vahan.margaryan@betconstructTest13.com",
+        pass: '12345600',
+        company: 'Ucraft',
+        address1: 'address 123',
+        city: 'Yerevan',
+        state: '1',
+        postcode: '00026',
+        other: 'Hello World !',
+        mobileNum: '+37496122261',
+        days: '1',
+        months: '1',
+        years: '2021'
+    },
     // {
     //     firstName: "Vahan3", 
     //     lastName: "Margaryan3", 

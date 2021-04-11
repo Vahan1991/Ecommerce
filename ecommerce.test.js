@@ -28,37 +28,40 @@ afterAll(async () => {
 })
 
 
-// const emls = [userCredentials.validData[0], userCredentials.validData[1], userCredentials.validData[2]] 
-// emls.forEach(async (eml) => {  
-describe("Test suite", ()=>{ 
-  it('Test with valid credentials', async () => {
-        jest.setTimeout(40000)
-        let ecomm = new Ecommerce(page)
-        await ecomm.open()
-    
-       // await ecomm.createAccount({emls: eml.email}, selectorsOfCredentials.createAccountSelectors[0])
-       
-        //await ecomm.createAccount(userCredentials.validData[0], selectorsOfCredentials.createAccountSelectors[0])
-        //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0])
 
-        await ecomm.signIn(userCredentials.validData[0], selectorsOfCredentials.signInSelectors[0])
-        //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0]) 
-        await ecomm.search()
-        await ecomm.addToCart()
-        await ecomm.proceedAndGetInvoice(selectorsOfCredentials.logOutSelector[0])
+// const ems = [userCredentials.validData[0].email, userCredentials.validData[1].email]
+// const pws = [userCredentials.validData[0].pass]
+// ems.forEach(async (eml) => {  
+// pws.forEach(async (pw) => {
+  describe("Test suite", ()=>{ 
+    it('Test with valid credentials', async () => {
+          jest.setTimeout(40000)
+          let ecomm = new Ecommerce(page)
+          await ecomm.open()
+             
+          //await ecomm.createAccount(userCredentials.validData[0], selectorsOfCredentials.createAccountSelectors[0])
+          //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0])
+  
+          //await ecomm.signIn({eml, pw}, selectorsOfCredentials.signInSelectors[0])
 
-        // });
-
+          await ecomm.signIn(userCredentials.validData[0], selectorsOfCredentials.signInSelectors[0])
+          //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0]) 
+          await ecomm.search()
+          await ecomm.addToCart()
+          await ecomm.proceedAndGetInvoice(selectorsOfCredentials.logOutSelector[0])
+          
+     });
+  })
 
         // let testObj = [userCredentials.validData[1].email, userCredentials.validData[2].email]
         // testObj.forEach(async (i) => {}) 
         
 
-         //await ecomm.createAccount(loginCredentials.invalidData[0])
+        //await ecomm.createAccount(loginCredentials.invalidData[0])
         
        
-    });
-})
+//   });
+// })
  
 
 

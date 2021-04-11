@@ -44,7 +44,7 @@ export class Ecommerce {
         await this.page.click("//div[@class='header_user_info']")
         await this.page.fill(Selector3.signInEmail, Data.email)           // "//input[@id='email']"
         await this.page.fill(Selector3.signInPass, Data.pass)            // "//input[@id='passwd']" 
-        await this.page.click(Selector3.logInSubmit)                    // "//button[@id='SubmitLogin']"
+        await this.page.click(Selector3.logInSubmit)   
     }
     async search() {
         await this.page.fill("//input[@id='search_query_top']", 'Printed Chiffon Dress')      // "//input[@id='search_query_top']"
