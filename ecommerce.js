@@ -12,7 +12,7 @@ export class Ecommerce {
     }
     
     
-    async createAccount(Data, Selector1) {
+   /* async createAccount(Data, Selector1) {
         await this.page.click(Selector1.signInButton)                                 // "//div[@class='header_user_info']"
         await this.page.fill(Selector1.createEmailInput, Data.email)                 // "//input[@id='email_create']"
         await this.page.click(Selector1.submitButton)                               // "//button[@id='SubmitCreate']"
@@ -39,17 +39,45 @@ export class Ecommerce {
     }
     async logOut(Selector2) {
         await this.page.click(Selector2.logOut)                            // "//a[@class='logout']"
-    }
+    } */
     async signIn(Data, Selector3) {
+        await this.page.click("//div[@class='header_user_info']")
         await this.page.fill(Selector3.signInEmail, Data.email)           // "//input[@id='email']"
         await this.page.fill(Selector3.signInPass, Data.pass)            // "//input[@id='passwd']" 
         await this.page.click(Selector3.logInSubmit)                    // "//button[@id='SubmitLogin']"
     }
-    // async search(Selector, Srch) {
-    //     await this.page.fill(Selector.searchQuery, Srch.query)      // "//input[@id='search_query_top']"
-    //     await this.page.click(Selector.searchSubmit)                 // "//button[@name='submit_search']"
-    // }
+    async search() {
+        await this.page.fill("//input[@id='search_query_top']", 'Printed Chiffon Dress')      // "//input[@id='search_query_top']"
+        await this.page.click("//button[@name='submit_search']")                             // "//button[@name='submit_search']"
+    }
 
+    async addToCart() {
+        const myPromise = new Promise((resolve) => {
+            setTimeout(async () => {
+               resolve(await this.page.hover("[alt='Printed Summer Dress'][title='Printed Summer Dress']"));
+               await this.page.hover("//img[@alt='Printed Summer Dress']")
+            }, 2000);
+          });
+        myPromise
+        .then(await this.page.click("xpath=(//a[@title='Add to cart'])[2]"))
+    }
+
+    async proceedAndGetInvoice(Selector2){
+        // CSS_Selectors
+        await this.page.click('[title="Proceed to checkout"]');                                  
+        await this.page.click("p [title='Proceed to checkout']");            
+        await this.page.click('p > [name="processAddress"]');   
+        await this.page.click("p > div > span > input[type='checkbox']");
+        await this.page.click('p > [name="processCarrier"]');                   
+        await this.page.click("div p a.cheque");                            
+        await this.page.click("form p > [type='submit'] span");
+        await this.page.click('[title="Back to orders"]');
+        await this.page.click('td [class="btn btn-default button button-small"]');
+        await this.page.selectOption('[name="id_product"]', '6');
+        await this.page.fill('p textarea[class="form-control"]', 'Some text here.');
+        await this.page.click('button[name="submitMessage"]');
+        await this.page.click(Selector2.logOut)
+    }
 }
 
 

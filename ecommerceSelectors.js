@@ -40,14 +40,6 @@ export const selectorsOfCredentials = {
    ],    
 }
 
-// export const searchSelectors = {    
-//     searchingSel: [
-//         {
-//         searchQuery: "//input[@id='search_query_top']",
-//         searchSubmit: "//button[@name='submit_search']"
-//     },
-// ]
-// }
 
 // console.log(searchSelectors.searchingSel[0])
 // console.log(selectorsOfCredentials.createAccountSelectors[0])

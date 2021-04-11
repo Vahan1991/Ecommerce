@@ -32,15 +32,21 @@ afterAll(async () => {
 // emls.forEach(async (eml) => {  
 describe("Test suite", ()=>{ 
   it('Test with valid credentials', async () => {
+        jest.setTimeout(40000)
         let ecomm = new Ecommerce(page)
         await ecomm.open()
     
        // await ecomm.createAccount({emls: eml.email}, selectorsOfCredentials.createAccountSelectors[0])
-        await ecomm.createAccount(userCredentials.validData[0], selectorsOfCredentials.createAccountSelectors[0])
-        await ecomm.logOut(selectorsOfCredentials.logOutSelector[0])
+       
+        //await ecomm.createAccount(userCredentials.validData[0], selectorsOfCredentials.createAccountSelectors[0])
+        //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0])
+
         await ecomm.signIn(userCredentials.validData[0], selectorsOfCredentials.signInSelectors[0])
-        await ecomm.logOut(selectorsOfCredentials.logOutSelector[0]) 
-        
+        //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0]) 
+        await ecomm.search()
+        await ecomm.addToCart()
+        await ecomm.proceedAndGetInvoice(selectorsOfCredentials.logOutSelector[0])
+
         // });
 
 
@@ -49,26 +55,24 @@ describe("Test suite", ()=>{
         
 
          //await ecomm.createAccount(loginCredentials.invalidData[0])
-        // await ecomm.search(srch.searching[0], searchSelectors.searchingSel[0])
+        
        
     });
 })
  
 
-// for (let i = 0; i < emls; i++) {  
-//   const e = emls[i];        // `${e}`
-
-
-// const emls = [userCredentials.validData[0], userCredentials.validData[1], userCredentials.validData[2]]
-//         for (let i = 0; i < emls; i++) {  
-//         const e = emls[i]  // `${e}`
-//
 
 
 
 
 
 
+/*expects*/
+
+// let title = await page.waitForSelector('p[class="alert alert-success"]', {timeout: 3000})
+//         let expectedTitle = "Message successfully sent" // [class="alert alert-success"]
+//         expect(await title.textContent()).toEqual(expectedTitle)
+//         console.log(expectedTitle)
 
 // let title = await page.waitForSelector("//div[@id='create_account_error']") // , {timeout: 5000}
 //         let expectedTitle = 'An account using this email address has already been registered. Please enter a valid password or request a new one. '
