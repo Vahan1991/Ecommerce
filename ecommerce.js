@@ -52,15 +52,19 @@ export class Ecommerce {
     }
 
     async addToCart() {
-        const myPromise = new Promise((resolve) => {
-            setTimeout(async () => {
-               resolve(await this.page.hover("[alt='Printed Summer Dress'][title='Printed Summer Dress']"));
-               await this.page.hover("//img[@alt='Printed Summer Dress']")
-            }, 2000);
-          });
-        myPromise
-        .then(await this.page.click("xpath=(//a[@title='Add to cart'])[2]"))
+        // const myPromise = new Promise((resolve) => {
+        //     setTimeout(async () => {
+        //        resolve(await this.page.hover("[alt='Printed Summer Dress'][title='Printed Summer Dress']"));
+        //        await this.page.hover("//img[@alt='Printed Summer Dress']")
+        //     }, 2000);
+        //   });
+        // myPromise
+        // .then(await this.page.click("xpath=(//a[@title='Add to cart'])[2]"))
+        
+        await this.page.hover("(//div[@class='product-container']/..)[2]")
+        await this.page.click("xpath=(//a[@title='Add to cart'])[2]")
     }
+    
 
     async proceedAndGetInvoice(Selector2){
         // CSS_Selectors
