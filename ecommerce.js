@@ -60,6 +60,11 @@ export class Ecommerce {
         //   });
         // myPromise
         // .then(await this.page.click("xpath=(//a[@title='Add to cart'])[2]"))
+
+        let elem = await this.page.waitForSelector("(//span[@itemprop='price'])[4]", {timeout: 3000}) // $$
+        let text = '$30.50'
+        expect(await elem.textContent()).toContain(`${text}`)  // `${text.repeat(2)}`
+        console.log(await elem.textContent())
         
         await this.page.hover("(//div[@class='product-container']/..)[2]")
         await this.page.click("xpath=(//a[@title='Add to cart'])[2]")
