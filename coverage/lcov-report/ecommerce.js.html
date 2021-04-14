@@ -152,7 +152,9 @@
 <a name='L93'></a><a href='#L93'>93</a>
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -249,6 +251,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {baseURL} from "./baseConfigs"
 &nbsp;
+&nbsp;
 export class Ecommerce {
     constructor(page, browser) {
         this.page = page
@@ -300,7 +303,7 @@ export class Ecommerce {
         await this.page.click("//button[@name='submit_search']")                             // "//button[@name='submit_search']"
     }
 &nbsp;
-    async addToCart() {
+    async addToCart(AddToSelector) {
         // const myPromise = new Promise((resolve) =&gt; {
         //     setTimeout(async () =&gt; {
         //        resolve(await this.page.hover("[alt='Printed Summer Dress'][title='Printed Summer Dress']"));
@@ -309,31 +312,31 @@ export class Ecommerce {
         //   });
         // myPromise
         // .then(await this.page.click("xpath=(//a[@title='Add to cart'])[2]"))
-&nbsp;
-        let elem = await this.page.waitForSelector("(//span[@itemprop='price'])[4]", {timeout: 3000}) // $$
-        let text = '$30.50'
+    
+        let elem = await this.page.waitForSelector("(//span[@itemprop='price'])[4]", {timeout: 7000}) // $$
+        let text = '$30.50' 
         expect(await elem.textContent()).toContain(`${text}`)  // `${text.repeat(2)}`
         console.log(await elem.textContent())
         
-        await this.page.hover("(//div[@class='product-container']/..)[2]")
-        await this.page.click("xpath=(//a[@title='Add to cart'])[2]")
+        await this.page.hover(AddToSelector.hoverSelector)   // "(//div[@class='product-container']/..)[2]"
+        await this.page.click(AddToSelector.clickToProceed)  // "xpath=(//a[@title='Add to cart'])[2]"
     }
     
 &nbsp;
-    async proceedAndGetInvoice(Selector2){
+    async proceedAndGetInvoice(Selector2, Selector_2){
         // CSS_Selectors
-        await this.page.click('[title="Proceed to checkout"]');                                  
-        await this.page.click("p [title='Proceed to checkout']");            
-        await this.page.click('p &gt; [name="processAddress"]');   
-        await this.page.click("p &gt; div &gt; span &gt; input[type='checkbox']");
-        await this.page.click('p &gt; [name="processCarrier"]');                   
-        await this.page.click("div p a.cheque");                            
-        await this.page.click("form p &gt; [type='submit'] span");
-        await this.page.click('[title="Back to orders"]');
-        await this.page.click('td [class="btn btn-default button button-small"]');
-        await this.page.selectOption('[name="id_product"]', '6');
-        await this.page.fill('p textarea[class="form-control"]', 'Some text here.');
-        await this.page.click('button[name="submitMessage"]');
+        await this.page.click(Selector_2.clickProceedToCheckout);               //'[title="Proceed to checkout"]'    
+        await this.page.click(Selector_2.clickProceedToCheckout_2);            //"p [title='Proceed to checkout']"      
+        await this.page.click(Selector_2.clickProcessAddress);                //'p &gt; [name="processAddress"]'
+        await this.page.click(Selector_2.clickCheckbox);                     // "p &gt; div &gt; span &gt; input[type='checkbox']"
+        await this.page.click(Selector_2.clickProcessCarrier);              // 'p &gt; [name="processCarrier"]'                      
+        await this.page.click(Selector_2.clickCheque);                     //  "div p a.cheque"                    
+        await this.page.click(Selector_2.clickSubmit);                    // "form p &gt; [type='submit'] span"
+        await this.page.click(Selector_2.clickBackToOrders);                              // '[title="Back to orders"]'
+        await this.page.click(Selector_2.clickSmallButton);                              // 'td [class="btn btn-default button button-small"]'
+        await this.page.selectOption(Selector_2.selectId_product, '6');                 // '[name="id_product"]'
+        await this.page.fill(Selector_2.fillInTextarea, 'Some text here.');            // 'p textarea[class="form-control"]'
+        await this.page.click(Selector_2.clickSubmitMessage);                         // 'button[name="submitMessage"]'
         await this.page.click(Selector2.logOut)
     }
 }
@@ -349,7 +352,7 @@ export class Ecommerce {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Apr 14 2021 10:40:17 GMT+0400 (Armenia Standard Time)
+                at Wed Apr 14 2021 22:31:10 GMT+0400 (Armenia Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

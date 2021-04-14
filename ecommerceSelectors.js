@@ -37,7 +37,29 @@ export const selectorsOfCredentials = {
         signInPass: "//input[@id='passwd']",
         logInSubmit: "//button[@id='SubmitLogin']"
     }
-   ],    
+   ],  
+   addCart: [
+       {
+           hoverSelector: "(//div[@class='product-container']/..)[2]",
+           clickToProceed: "xpath=(//a[@title='Add to cart'])[2]" 
+       }
+   ],
+   proceedEco: [
+       {
+        clickProceedToCheckout: '[title="Proceed to checkout"]',                                
+        clickProceedToCheckout_2: "p [title='Proceed to checkout']",           
+        clickProcessAddress: 'p > [name="processAddress"]',
+        clickCheckbox: "p > div > span > input[type='checkbox']",
+        clickProcessCarrier: 'p > [name="processCarrier"]',         
+        clickCheque: "div p a.cheque",                            
+        clickSubmit: "form p > [type='submit'] span",
+        clickBackToOrders: '[title="Back to orders"]',
+        clickSmallButton: 'td [class="btn btn-default button button-small"]',
+        selectId_product: '[name="id_product"]',
+        fillInTextarea: 'p textarea[class="form-control"]',
+        clickSubmitMessage: 'button[name="submitMessage"]',
+       }
+   ]  
 }
 
 

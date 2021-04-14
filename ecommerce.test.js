@@ -35,7 +35,7 @@ afterAll(async () => {
 // pws.forEach(async (pw) => {
   describe("Test suite", ()=>{ 
     it('Test with valid credentials', async () => {
-          jest.setTimeout(90000)
+          //jest.setTimeout(900000)
           let ecomm = new Ecommerce(page)
           await ecomm.open()
              
@@ -47,8 +47,8 @@ afterAll(async () => {
           await ecomm.signIn(userCredentials.validData[0], selectorsOfCredentials.signInSelectors[0])
           //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0]) 
           await ecomm.search()
-          await ecomm.addToCart()
-          await ecomm.proceedAndGetInvoice(selectorsOfCredentials.logOutSelector[0])  
+          await ecomm.addToCart(selectorsOfCredentials.addCart[0])
+          await ecomm.proceedAndGetInvoice(selectorsOfCredentials.logOutSelector[0], selectorsOfCredentials.proceedEco[0])  
      });
   })
 

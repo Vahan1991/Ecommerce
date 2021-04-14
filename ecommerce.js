@@ -1,5 +1,6 @@
 import {baseURL} from "./baseConfigs"
 
+
 export class Ecommerce {
     constructor(page, browser) {
         this.page = page
@@ -51,7 +52,7 @@ export class Ecommerce {
         await this.page.click("//button[@name='submit_search']")                             // "//button[@name='submit_search']"
     }
 
-    async addToCart() {
+    async addToCart(AddToSelector) {
         // const myPromise = new Promise((resolve) => {
         //     setTimeout(async () => {
         //        resolve(await this.page.hover("[alt='Printed Summer Dress'][title='Printed Summer Dress']"));
@@ -60,31 +61,31 @@ export class Ecommerce {
         //   });
         // myPromise
         // .then(await this.page.click("xpath=(//a[@title='Add to cart'])[2]"))
-
-        let elem = await this.page.waitForSelector("(//span[@itemprop='price'])[4]", {timeout: 3000}) // $$
-        let text = '$30.50'
+    
+        let elem = await this.page.waitForSelector("(//span[@itemprop='price'])[4]", {timeout: 7000}) // $$
+        let text = '$30.50' 
         expect(await elem.textContent()).toContain(`${text}`)  // `${text.repeat(2)}`
         console.log(await elem.textContent())
         
-        await this.page.hover("(//div[@class='product-container']/..)[2]")
-        await this.page.click("xpath=(//a[@title='Add to cart'])[2]")
+        await this.page.hover(AddToSelector.hoverSelector)   // "(//div[@class='product-container']/..)[2]"
+        await this.page.click(AddToSelector.clickToProceed)  // "xpath=(//a[@title='Add to cart'])[2]"
     }
     
 
-    async proceedAndGetInvoice(Selector2){
+    async proceedAndGetInvoice(Selector2, Selector_2){
         // CSS_Selectors
-        await this.page.click('[title="Proceed to checkout"]');                                  
-        await this.page.click("p [title='Proceed to checkout']");            
-        await this.page.click('p > [name="processAddress"]');   
-        await this.page.click("p > div > span > input[type='checkbox']");
-        await this.page.click('p > [name="processCarrier"]');                   
-        await this.page.click("div p a.cheque");                            
-        await this.page.click("form p > [type='submit'] span");
-        await this.page.click('[title="Back to orders"]');
-        await this.page.click('td [class="btn btn-default button button-small"]');
-        await this.page.selectOption('[name="id_product"]', '6');
-        await this.page.fill('p textarea[class="form-control"]', 'Some text here.');
-        await this.page.click('button[name="submitMessage"]');
+        await this.page.click(Selector_2.clickProceedToCheckout);               //'[title="Proceed to checkout"]'    
+        await this.page.click(Selector_2.clickProceedToCheckout_2);            //"p [title='Proceed to checkout']"      
+        await this.page.click(Selector_2.clickProcessAddress);                //'p > [name="processAddress"]'
+        await this.page.click(Selector_2.clickCheckbox);                     // "p > div > span > input[type='checkbox']"
+        await this.page.click(Selector_2.clickProcessCarrier);              // 'p > [name="processCarrier"]'                      
+        await this.page.click(Selector_2.clickCheque);                     //  "div p a.cheque"                    
+        await this.page.click(Selector_2.clickSubmit);                    // "form p > [type='submit'] span"
+        await this.page.click(Selector_2.clickBackToOrders);                              // '[title="Back to orders"]'
+        await this.page.click(Selector_2.clickSmallButton);                              // 'td [class="btn btn-default button button-small"]'
+        await this.page.selectOption(Selector_2.selectId_product, '6');                 // '[name="id_product"]'
+        await this.page.fill(Selector_2.fillInTextarea, 'Some text here.');            // 'p textarea[class="form-control"]'
+        await this.page.click(Selector_2.clickSubmitMessage);                         // 'button[name="submitMessage"]'
         await this.page.click(Selector2.logOut)
     }
 }
