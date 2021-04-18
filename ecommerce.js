@@ -1,10 +1,11 @@
 import {baseURL} from "./baseConfigs"
+const colors = require('colors');
 
 
 export class Ecommerce {
     constructor(page, browser) {
         this.page = page
-        // this.browser = browser ???
+        this.browser = browser
         
     }
 
@@ -62,7 +63,7 @@ export class Ecommerce {
         // myPromise
         // .then(await this.page.click("xpath=(//a[@title='Add to cart'])[2]"))
     
-        let elem = await this.page.waitForSelector("(//span[@itemprop='price'])[4]", {timeout: 7000}) // $$
+        let elem = await this.page.waitForSelector("(//span[@itemprop='price'])[4]", {timeout: 10000}) // $$
         let text = '$30.50' 
         expect(await elem.textContent()).toContain(`${text}`)  // `${text.repeat(2)}`
         console.log(await elem.textContent())
@@ -74,11 +75,18 @@ export class Ecommerce {
 
     async proceedAndGetInvoice(Selector2, Selector_2){
         // CSS_Selectors
-        await this.page.click(Selector_2.clickProceedToCheckout);               //'[title="Proceed to checkout"]'    
-        await this.page.click(Selector_2.clickProceedToCheckout_2);            //"p [title='Proceed to checkout']"      
-        await this.page.click(Selector_2.clickProcessAddress);                //'p > [name="processAddress"]'
+        await this.page.click(Selector_2.clickProceedToCheckout);               //'[title="Proceed to checkout"]'  
+        let color = await this.page.waitForSelector("td[class='cart_description']") //td > small > a[href$="color-yellow"]:nth-last-of-type(1)
+        let colorText = 'Yellow' 
+        // `${text.repeat(2)}`
+        expect(await color.textContent()).toContain(`${colorText}`)
+        console.log(await color.textContent(), `${colors.bold.bgRed.green(colorText)} `)  // console.log(`%c ${colorText} `, "background: #222; color: #bada55")
+        
+        
+        await this.page.click(Selector_2.clickProceedToCheckout_2);            //"p [title='Proceed to checkout']"   
+        await this.page.click(Selector_2.clickProceedAddress);                //'p > [name="processAddress"]'
         await this.page.click(Selector_2.clickCheckbox);                     // "p > div > span > input[type='checkbox']"
-        await this.page.click(Selector_2.clickProcessCarrier);              // 'p > [name="processCarrier"]'                      
+        await this.page.click(Selector_2.clickProceedCarrier);              // 'p > [name="processCarrier"]'                      
         await this.page.click(Selector_2.clickCheque);                     //  "div p a.cheque"                    
         await this.page.click(Selector_2.clickSubmit);                    // "form p > [type='submit'] span"
         await this.page.click(Selector_2.clickBackToOrders);                              // '[title="Back to orders"]'
@@ -87,6 +95,7 @@ export class Ecommerce {
         await this.page.fill(Selector_2.fillInTextarea, 'Some text here.');            // 'p textarea[class="form-control"]'
         await this.page.click(Selector_2.clickSubmitMessage);                         // 'button[name="submitMessage"]'
         await this.page.click(Selector2.logOut)
+                
     }
 }
 

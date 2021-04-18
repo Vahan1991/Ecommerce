@@ -1,7 +1,8 @@
 
 import { Ecommerce } from './ecommerce.js';
-import { userCredentials } from './dataFiles'
+import { userCredentials } from './dataFiles.js'
 import { selectorsOfCredentials } from './ecommerceSelectors.js';
+
 
 const { chromium } = require('playwright');
 let browser;
@@ -43,7 +44,7 @@ afterAll(async () => {
           //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0])
   
           //await ecomm.signIn({eml, pw}, selectorsOfCredentials.signInSelectors[0])
-
+          
           await ecomm.signIn(userCredentials.validData[0], selectorsOfCredentials.signInSelectors[0])
           //await ecomm.logOut(selectorsOfCredentials.logOutSelector[0]) 
           await ecomm.search()

@@ -23,7 +23,9 @@ export const selectorsOfCredentials = {
             phoneMobile: "//input[@name='phone_mobile']",
             submitAccount: "//button[@id='submitAccount']"
 
-        }
+        }, 
+        
+
     ],
     logOutSelector: [
     {
@@ -48,9 +50,9 @@ export const selectorsOfCredentials = {
        {
         clickProceedToCheckout: '[title="Proceed to checkout"]',                                
         clickProceedToCheckout_2: "p [title='Proceed to checkout']",           
-        clickProcessAddress: 'p > [name="processAddress"]',
+        clickProceedAddress: "button[name='processAddress']",
         clickCheckbox: "p > div > span > input[type='checkbox']",
-        clickProcessCarrier: 'p > [name="processCarrier"]',         
+        clickProceedCarrier: 'p > [name="processCarrier"]',         
         clickCheque: "div p a.cheque",                            
         clickSubmit: "form p > [type='submit'] span",
         clickBackToOrders: '[title="Back to orders"]',

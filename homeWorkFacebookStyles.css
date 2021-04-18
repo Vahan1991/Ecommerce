@@ -1,0 +1,174 @@
+body {
+    overflow-y: scroll;
+}
+
+body, button, input, label, select, td, textarea {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+body {
+    background: rgb(52, 179, 230);
+    color: #01070f;
+    direction: ltr;
+    line-height: 1.34;
+    margin: 0;
+    padding: 0;
+    unicode-bidi: embed;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+#facebook ._-kb div {
+    font-family: inherit;
+}
+
+._95ka {
+    padding-bottom: 112px;
+    padding-top: 72px;
+}
+._8op_ {
+    padding-bottom: 40px;
+    padding-top: 62px;
+}
+._8icx {
+    padding-top: 82px;
+}
+._95k9 {
+    background: #f0f2f5;
+    min-width: 500px;
+}
+._8esj {
+    background: #edf0f5;
+}
+
+div {
+    display: block;
+}
+
+#content {
+    margin: 0;
+    outline: none;
+    padding: 0;
+    width: auto;
+}
+.clearfix {
+    zoom: 1;
+}
+.fb_content {
+    min-height: 640px;
+    padding-bottom: 20px;
+}
+div {
+    display: block;
+}
+.clearfix:after {
+    clear: both;
+    content: '.';
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+._6luv {
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    margin: 40px 0 0;
+    padding: 20px 0 28px;
+    width: 396px;
+}
+._52jv {
+    text-align: center;
+}
+
+@media only screen and (max-width: 900px){
+    ._8esk {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+#facebook ._-kb button, #facebook ._-kb input, #facebook ._-kb label, #facebook ._-kb select, #facebook ._-kb td, #facebook ._-kb textarea {
+    font-family: inherit;
+}
+
+._8icy ._6lth {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 332px;
+}
+._42ft {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+#facebook ._-kb button, #facebook ._-kb input, #facebook ._-kb label, #facebook ._-kb select, #facebook ._-kb td, #facebook ._-kb textarea {
+    font-family: inherit;
+}
+
+._8icy ._6lux ._6luy, ._9aha ._6lux ._6luy {
+    border-radius: 6px;
+}
+._8icy ._6lux ._6luy {
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+}
+._6lux ._6luy {
+    font-size: 14px;
+    padding: 5px 8px;
+    width: 284px;
+}
+html ._55r1 {
+    background: #FFFFFF url(/rsrc.php/v3/yO/r/YQNfPR9MJfx.png) repeat-x;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 22px;
+    line-height: 16px;
+    padding: 0 8px;
+    vertical-align: middle;
+}
+.inputtext, .inputpassword {
+    padding-bottom: 4px;
+}
+textarea, .inputtext, .inputpassword {
+    -webkit-appearance: none;
+    border: 1px solid #ccd0d5;
+    border-radius: 0;
+    margin: 0;
+    padding: 3px;
+}
+
+div {
+    display: block;
+}
+._52jv {
+    text-align: center;
+}
