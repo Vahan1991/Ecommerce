@@ -1,15 +1,20 @@
-let usernames = ["Marg, Vah"]
-let Utils = { 
-    email: function(){
-        let randomNum = Math.floor(Math.random() * 100)
-        return `name${randomNum.toString()}@email.com`
-    },
-    username: function(){
+import { userCredentials } from './dataFiles'
+
+export let Util = {
+    generateRandomEmails: function() {
+        let randomNumEmail = Math.floor(Math.random() * 100)
+        return `name${randomNumEmail.toString()}${userCredentials.validData[0].email}`  // '@email.com'
+},
+    generateRandomPass: function(){
         let randomUser = Math.floor(Math.random() * 100)
-        return `name${randomUser.toString()}, ${usernames}`
+        return `Pw${randomUser.toString()}${userCredentials.validData[0].pass}!`
     }
 }
 
 
-console.log(Utils.username())
-console.log(Utils.email())
+
+
+
+// console.log(Utils.username())
+// console.log(Util.generateRandomEmails())
+// Util.generateRandomEmails()

@@ -2,7 +2,7 @@ export const userCredentials = {
  validData: [
     {   firstName: "Vahan", 
         lastName: "Margaryan", 
-        email: 'vahan.margaryan@betconstructTest10.com',
+        email: 'margaryan@betconstructTest.com',
         pass: '12345600',
         company: 'Ucraft',
         address1: 'address 123',
@@ -18,7 +18,7 @@ export const userCredentials = {
     {
         firstName: "Vahan2", 
         lastName: "Margaryan2", 
-        email: "vahan.margaryan@betconstructTest13.com",
+        email: "margaryan@betconstructTest2.com",
         pass: '12345600',
         company: 'Ucraft',
         address1: 'address 123',
@@ -34,7 +34,7 @@ export const userCredentials = {
     // {
     //     firstName: "Vahan3", 
     //     lastName: "Margaryan3", 
-    //     email: 'vahan.margaryan@betconstruct006.com',
+    //     email: 'margaryan@betconstructTest3.com',
     //     pass: '12345600',
     //     company: 'Ucraft',
     //     address1: 'address 123',
