@@ -71,4 +71,7 @@ someCSSselectors.cssSelectors.forEach(async (cssElement) => {
     })  
 });
 
+// meta[name^='v']
+// meta[content|='asg' i]
+// div:not([class='wrapper'])
 
